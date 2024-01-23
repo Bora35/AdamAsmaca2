@@ -533,7 +533,6 @@
             this.LblKategori.Size = new System.Drawing.Size(228, 65);
             this.LblKategori.TabIndex = 35;
             this.LblKategori.Text = "Kategori :  ";
-            this.LblKategori.Click += new System.EventHandler(this.LblKategori_Click);
             // 
             // LblHak
             // 
@@ -545,7 +544,6 @@
             this.LblHak.Size = new System.Drawing.Size(246, 65);
             this.LblHak.TabIndex = 36;
             this.LblHak.Text = "Kalan Hak : ";
-            this.LblHak.Click += new System.EventHandler(this.LblHak_Click);
             // 
             // pictureBox1
             // 
@@ -595,7 +593,6 @@
             this.LblSure.Size = new System.Drawing.Size(132, 65);
             this.LblSure.TabIndex = 40;
             this.LblSure.Text = "Süre :";
-            this.LblSure.Click += new System.EventHandler(this.LblSure_Click);
             // 
             // Game
             // 

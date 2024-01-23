@@ -215,6 +215,10 @@ namespace Proje
 
                 TxtBoxTahmin.Visible = true;
                 BtnGonder.Visible = true;
+
+                // TUŞLARI İZLEMEYİ BIRAK
+                this.KeyPreview = false;
+
             }
             else if (!cevap.Contains(Secilen))
             {
@@ -223,6 +227,7 @@ namespace Proje
                 pictureBox1.Load($"images/{YAdet}.png");
                 LblHak.Text = $"Kalan Hak : {7 - YAdet}";
                 yanlis.Add(Secilen);
+                SystemSounds.Hand.Play();
             }
             else
             {
@@ -246,6 +251,7 @@ namespace Proje
             if (YAdet == 7)
             {
                 puan = -10;
+                SystemSounds.Hand.Play();
                 MessageBox.Show($"Hakkın kalmadı, oyun bitti.\nMaalesef bilemedin!\nKelime: {cevap}");
                 OyunBitir();
             }
@@ -287,7 +293,7 @@ namespace Proje
 
                             if (SecilenButton.Text == keyPressed.ToString())
                             {
-                                SystemSounds.Hand.Play();
+                                SystemSounds.Exclamation.Play();
                             }
                         }
                     }
@@ -316,6 +322,7 @@ namespace Proje
                         pictureBox1.Load($"images/{YAdet}.png");
                         LblHak.Text = $"Kalan Hak : {7 - YAdet}";
                         yanlis.Add(Tus);
+                        SystemSounds.Hand.Play();
                     }
                     else
                     {
@@ -339,6 +346,7 @@ namespace Proje
                     if (YAdet == 7)
                     {
                         puan = -10;
+                        SystemSounds.Hand.Play();
                         MessageBox.Show($"Hakkın kalmadı, oyun bitti.\nMaalesef bilemedin!\nKelime: {cevap}");
                         OyunBitir();
                     }
@@ -407,9 +415,15 @@ namespace Proje
                 pictureBox1.Load($"images/{YAdet}.png");
                 LblHak.Text = $"Kalan Hak : {7 - YAdet}";
 
+                SystemSounds.Hand.Play();
+
                 BtnTahmin.Enabled = true;
+                BtnTahmin.BackColor = Color.LimeGreen;
 
             }
+
+            // TUŞLARI İZLEMEYE DEVAM ET
+            this.KeyPreview = true;
         }
 
         // ZAMANLAYICI
@@ -426,6 +440,9 @@ namespace Proje
             {
                 Zamanlayici.Stop();
                 puan = dogru.Count * 2;
+
+                SystemSounds.Hand.Play();
+                
                 MessageBox.Show($"Süren doldu, oyun bitti.\nMaalesef bilemedin!\nPuan: {puan}\nKelime: {cevap}");
                 OyunBitir();
             }
@@ -473,21 +490,6 @@ namespace Proje
             Menu FrmMenu = new Menu();
             FrmMenu.Show();
             this.Hide();
-        }
-
-        private void LblKategori_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LblHak_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LblSure_Click(object sender, EventArgs e)
-        {
-
         }
 
         // OYUN KAPAT
